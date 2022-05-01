@@ -21,26 +21,27 @@ const ModalButton = ({ selectedValue }) => {
   const handleShow = () => setShow(true);
 
   const handleDisplay = () => {
-    if (selectedValue == "CPU") {
-      return <CpuFormGroup />;
-    } else if (selectedValue == "GPU") {
-      return <GpuFormGroup />;
-    } else if (selectedValue == "CPU Cooler") {
-      return <CpuCoolerFormGroup />;
-    } else if (selectedValue == "Motherboard") {
-      return <MotherboardFormGroup />;
-    } else if (selectedValue == "Memory") {
-      return <MemoryFormGroup />;
-    } else if (selectedValue == "Storage") {
-      return <StorageFormGroup />;
-    } else if (selectedValue == "Case") {
-      return <CaseFormGroup />;
-    } else if (selectedValue == "Power Supply") {
-      return <PowerSupplyFormGroup />;
-    } else if (selectedValue == "Operating System") {
-      return <OperatingSystemFormGroup />;
-    } else {
-      return <h1>Part is not selected</h1>;
+    switch (selectedValue) {
+      case "CPU":
+        return <CpuFormGroup />;
+      case "GPU":
+        return <GpuFormGroup />;
+      case "CPU Cooler":
+        return <CpuCoolerFormGroup />;
+      case "Motherboard":
+        return <MotherboardFormGroup />;
+      case "Memory":
+        return <MemoryFormGroup />;
+      case "Storage":
+        return <StorageFormGroup />;
+      case "Case":
+        return <CaseFormGroup />;
+      case "Power Supply":
+        return <PowerSupplyFormGroup />;
+      case "Operating System":
+        return <OperatingSystemFormGroup />;
+      default:
+        return <p>Part is not selected</p>;
     }
   };
   useEffect(() => {
